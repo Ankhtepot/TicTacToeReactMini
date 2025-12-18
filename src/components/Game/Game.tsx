@@ -1,6 +1,7 @@
 import {useTicTacToe} from "../../hooks/useTicTacToe.ts";
 import styles from './Game.module.css';
 import Board from "../Board/Board.tsx";
+import HistoryList from "../HistoryList/HistoryList.tsx";
 
 export default function Game() {
     const {
@@ -23,6 +24,7 @@ export default function Game() {
             <button className={styles.resetButton} onClick={reset}>
                 Reset game
             </button>
+
             <div className={styles.gameLayout}>
                 <Board
                     board={currentBoard}
@@ -30,26 +32,7 @@ export default function Game() {
                     onSquareClick={handleSquareClick}
                 />
 
-                <div>
-                    <ol className={styles.historyList}>
-                        {history.map((_, move) => {
-                            const description =
-                                move === 0 ? "Go to game start" : `Go to move #${move}`;
-                            return (
-                                <li key={move}>
-                                    <button
-                                        className={styles.historyButton}
-                                        onClick={() => jumpTo(move)}
-                                        disabled={move === currentMove}
-                                    >
-                                        {description}
-                                    </button>
-                                </li>
-                            );
-                        })}
-                    </ol>
-
-                </div>
+                <HistoryList history={history} move={currentMove} jumpTo={jumpTo}/>
 
             </div>
         </div>
