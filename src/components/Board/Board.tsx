@@ -1,4 +1,3 @@
-import type {ReactElement} from "react";
 import Square from "./Square/Square.tsx";
 import type {Player} from "../../hooks/useTicTacToe.ts";
 import styles from './Board.module.scss';
@@ -9,7 +8,7 @@ type BoardProps = {
     onSquareClick: (index: number) => void;
 };
 
-function Board({board, winningLine, onSquareClick}: BoardProps): ReactElement {
+function Board({board, winningLine, onSquareClick}: BoardProps) {
     return (
         <div className={styles.board}>
             {board.map((value, index) => (

@@ -3,11 +3,11 @@ import type {GameBoard} from "../../hooks/useTicTacToe.ts";
 
 type GameBoardProps = {
     history: GameBoard[];
-    move: number;
+    currentMove: number;
     jumpTo: (move: number) => void;
 };
 
-export default function HistoryList({history, move, jumpTo}: GameBoardProps) {
+export default function HistoryList({history, currentMove, jumpTo}: GameBoardProps) {
     return (
         <>
             <ol className={styles.historyList}>
@@ -19,7 +19,7 @@ export default function HistoryList({history, move, jumpTo}: GameBoardProps) {
                             <button
                                 className={styles.historyButton}
                                 onClick={() => jumpTo(index)}
-                                disabled={index === move}
+                                disabled={index === currentMove}
                             >
                                 {description}
                             </button>

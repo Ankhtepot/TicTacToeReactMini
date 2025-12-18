@@ -39,14 +39,14 @@ export function useTicTacToe() {
     function handleSquareClick(index: number) {
         if (winner || currentBoard[index]) return;
 
-        // Discard "future" moves if we are time‑traveling
-        const historyUntilNow = history.slice(0, currentMove + 1);
+        // Discard future moves if game timeline goes back
+        const historyUntilNow: GameBoard[] = history.slice(0, currentMove + 1);
 
-        const lastBoard = historyUntilNow[historyUntilNow.length - 1];
-        const nextBoard = lastBoard.slice() as GameBoard;
+        const lastBoard: GameBoard = historyUntilNow[historyUntilNow.length - 1];
+        const nextBoard: GameBoard = lastBoard.slice();
         nextBoard[index] = isXNext ? "X" : "O";
 
-        const nextHistory = [...historyUntilNow, nextBoard];
+        const nextHistory: GameBoard[] = [...historyUntilNow, nextBoard];
         setHistory(nextHistory);
         setCurrentMove(nextHistory.length - 1);
     }
@@ -61,10 +61,10 @@ export function useTicTacToe() {
     }
 
     const status = winner
-        ? `Winner: ${winner}`
+        ? `Winner: `
         : isDraw
             ? "Draw!"
-            : `Next player: ${isXNext ? "X" : "O"}`;
+            : `Next player: `;
 
     return {
         history,
