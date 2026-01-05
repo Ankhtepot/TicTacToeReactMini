@@ -49,6 +49,8 @@
     display: flex;
     gap: 24px;
     align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .resetButton {

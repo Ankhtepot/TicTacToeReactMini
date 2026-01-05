@@ -8,6 +8,8 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  background-color: beige;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
 
    &.isWinner {
     color: gold;
