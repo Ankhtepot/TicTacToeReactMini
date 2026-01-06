@@ -2,6 +2,7 @@ import {useTicTacToe} from "../../hooks/useTicTacToe.ts";
 import styles from './Game.module.scss';
 import Board from "../Board/Board.tsx";
 import HistoryList from "../HistoryList/HistoryList.tsx";
+import {TriangleIcon} from "lucide-react";
 
 export default function Game() {
     const {
@@ -13,9 +14,11 @@ export default function Game() {
         isDraw,
         winningLine,
         isXNext,
+        boardSize,
         handleSquareClick,
         jumpTo,
         reset,
+        setBoardSize,
     } = useTicTacToe();
 
     return (
@@ -27,9 +30,21 @@ export default function Game() {
             <button className={styles.resetButton} onClick={reset}>
                 Reset game
             </button>
+            <label style={{marginBottom: '-1.2em'}}>Board size (3-5): </label>
+            <div className={styles.boardSizeSelection}>
+                <button onClick={() => setBoardSize(boardSize - 1)}>
+                    <TriangleIcon className={`${styles.icon} ${styles.iconDown}`}/>
+                </button>
+                <p className={styles.boardsizeValue}>{boardSize}</p>
+                <button onClick={() => setBoardSize(boardSize + 1)}>
+                    <TriangleIcon className={`${styles.icon}`}/>
+                </button>
+            </div>
+
 
             <div className={styles.gameLayout}>
                 <Board
+                    boardSize={boardSize}
                     board={currentBoard}
                     winningLine={winningLine}
                     onSquareClick={handleSquareClick}

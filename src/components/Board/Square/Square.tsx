@@ -10,7 +10,6 @@ type SquareProps = {
 
 function Square({value, isWinner, isGameOver, onClick}: SquareProps) {
     return (
-        // <button className={`${styles.square} ${isWinner ? styles.isWinner : ""}`}
         <button className={getStyle()}
                 onClick={onClick}
         >

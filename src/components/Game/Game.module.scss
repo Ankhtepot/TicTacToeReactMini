@@ -1,62 +1,120 @@
 .container {
-    background-color: #9ee49e;
+  background: linear-gradient(135deg, rgb(5, 255, 197) 0%, rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  gap: 16px;
+  padding: 1.5em;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 1em;
+
+  @media (min-width: 769px) {
+    max-width: 768px;
+
+    border-radius: 1em;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    border-radius: 0;
+    height: 100%;
+  }
+
+  .boardSizeSelection {
     display: flex;
-    width: auto;
-    height: auto;
-    flex-direction: column;
+    gap: 16px;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
-    gap: 16px;
-    padding: 2em;
-    border-radius: 1em;
+    height: 3em;
+
+    button {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      display: flex;
+      justify-items: center;
+      align-items: center;
+
+      .icon {
+        width: 2em;
+        height: 2em;
+        fill: black;
+        display: block;
+
+        &.iconDown {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    p {
+      font-size: 3em;
+      font-weight: bolder;
+      margin: 0;
+      line-height: 1;
+      padding-bottom: 0.15em;
+      color: black;
+    }
+  }
 }
 
 .title {
-    font-size: 32px;
-    margin: 0;
-    border-bottom: 2px solid #000;
-    border-radius: 0.2em;
+  font-size: 32px;
+  margin: 0;
+  border-bottom: 2px solid #000;
+  border-radius: 0.2em;
+  color: #000;
 }
 
 .status {
-    font-size: 18px;
-    margin: 0 0 8px 0;
-    border: 2px solid transparent;
-    padding: 4px 8px;
-    border-radius: .5em;
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  border: 2px solid transparent;
+  padding: 4px 8px;
+  border-radius: .5em;
 
-    &.isWinner {
-        color: green;
-        font-weight: bold;
-        border-color: green;
-    }
+  &.isWinner {
+    color: green;
+    font-weight: bold;
+    border-color: green;
+  }
 
-    &.isDraw {
-        color: orangered;
-        font-weight: bold;
-        border-color: orange;
-        background-color: mistyrose;
-    }
+  &.isDraw {
+    color: orangered;
+    font-weight: bold;
+    border-color: orange;
+    background-color: mistyrose;
+  }
 
-    .player {
-        font-weight: bold;
-        font-size: 1.2em;
-    }
+  .player {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
 }
 
 .gameLayout {
-    display: flex;
-    gap: 24px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
+    width: auto;
+  }
 }
 
 .resetButton {
-    padding: 0.2em 1em;
-    font-size: 14px;
-    cursor: pointer;
-    color: black;
-    background-color: orange;
+  padding: 0.2em 1em;
+  font-size: 14px;
+  cursor: pointer;
+  color: black;
+  background-color: orange;
 }

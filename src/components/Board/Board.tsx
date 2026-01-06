@@ -1,16 +1,18 @@
 import Square from "./Square/Square.tsx";
 import type {Player} from "../../hooks/useTicTacToe.ts";
 import styles from './Board.module.scss';
+import type {CSSProperties} from "react";
 
 type BoardProps = {
+    boardSize: number;
     board: Player[];
     winningLine: number[];
     onSquareClick: (index: number) => void;
 };
 
-function Board({board, winningLine, onSquareClick}: BoardProps) {
+function Board({boardSize, board, winningLine, onSquareClick}: BoardProps) {
     return (
-        <div className={styles.board}>
+        <div className={styles.board} style={{ '--board-size': boardSize } as CSSProperties}>
             {board.map((value, index) => (
                 <Square
                     key={index}

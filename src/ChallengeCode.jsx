@@ -55,34 +55,6 @@ const buttonStyle = {
 
 const initialBoard = Array(9).fill(null);
 
-function generateLines(n) {
-    let array = [];
-
-    for(let row = 0; row < n; row++) {
-        let newRow = [];
-        for (let column = 0; column < n; column++) {
-            newRow.push(row * n + column);
-        }
-
-        array.push(newRow);
-    }
-
-    console.log(array);
-
-    for (let line = 0; line < n; line++) {
-        let newLine = [];
-        for(let column = 0; column < n; column++) {
-            newLine.push(line + column * n)
-        }
-
-        array.push(newLine);
-    }
-
-    console.log(array);
-}
-
-// generateLines(5);
-
 function calculateWinner(squares) {
     const lines = [
         [0, 1, 2],

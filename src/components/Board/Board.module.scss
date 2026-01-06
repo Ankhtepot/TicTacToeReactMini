@@ -1,6 +1,9 @@
 .board {
   display: grid;
-  grid-template-columns: repeat(3, 3.7em);
+  grid-template-columns: repeat(var(--board-size), minmax(0, 1fr));
+  width: 100%;
+  min-width: 400px;
+  max-width: 600px;
   gap: 4px;
   margin: 0 auto;
   justify-content: center;
@@ -8,4 +11,13 @@
   border-radius: .5em;
   border: 2px solid #000;
   background-color: #ccc;
+  box-sizing: border-box;
+}
+
+@media (max-width: 500px) {
+  .board {
+    min-width: 300px;
+    width: 100%;
+    height: 100%;
+  }
 }
